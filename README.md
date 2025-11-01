@@ -123,7 +123,7 @@ Always consult qualified healthcare providers for clinical decisions.
 
 👨‍💻 Developer
 
-Name: Rahul Raj Mahi
+Name: Rahul kumar 
 Email: rahulrajmahi611@gmail.com
 
 GitHub: github.com/Rahul8243
