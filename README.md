@@ -103,6 +103,7 @@ venv\Scripts\activate    # Windows
 
 3️⃣ Install Dependencies
 pip install -r requirements.txt
+ to update pip install --upgrade pip
 
 4️⃣ Run the App
 streamlit run diabetes_model_predict.py
