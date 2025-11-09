@@ -105,7 +105,7 @@ venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 
 4️⃣ Run the App
-streamlit run diabetes_app.py
+streamlit run diabetes_model_predict.py
 
 🧬 Dataset
 
