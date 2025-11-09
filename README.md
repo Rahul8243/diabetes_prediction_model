@@ -129,7 +129,7 @@ Email: rahulrajmahi611@gmail.com
 
 GitHub: github.com/Rahul8243
 
-LinkedIn: linkedin.com/in/rahul8243
+LinkedIn: https://www.linkedin.com/in/rahul-kumar-ab8843198/
 
 “Bridging data science and human insight through clean, ethical AI solutions.”
 
