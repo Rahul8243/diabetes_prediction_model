@@ -37,7 +37,6 @@ add_bg_from_local("blood_background.png", blur=True)
 text_color = "white"
 box_color = "rgba(20, 20, 20, 0.85)"
 
-# ========== LOAD DATA ==========
 @st.cache_data
 def load_data():
     return pd.read_csv("diabetes.csv")
@@ -80,7 +79,6 @@ st.markdown(
 )
 st.markdown("---")
 
-# ========== MODEL PERFORMANCE ==========
 st.subheader(f"📈 Model Performance")
 col1, col2 = st.columns(2)
 col1.metric("Training Accuracy", f"{train_metrics['Accuracy'] * 100:.1f}%")
@@ -116,12 +114,10 @@ cursor.execute(
 )
 conn.commit()
 
-# ========== TABS ==========
 tab1, tab2, tab3 = st.tabs(
     ["🧾 Prediction Form", "🗂️ Patient Records", "🧹 Data Management"]
 )
 
-# ========== 🧾 PREDICTION FORM ==========
 with tab1:
     st.subheader("Enter Patient Details")
 
@@ -143,7 +139,7 @@ with tab1:
                 "Diabetes Pedigree Function", 0.0, 2.5, 0.5
             )
 
-        submitted = st.form_submit_button("🔍 Predict Diabetes")
+        submitted = st.form_submit_button(" Predict Diabetes")
 
     if submitted:
         input_data = np.array(
@@ -164,11 +160,11 @@ with tab1:
         pred = model.predict(scaled_data)[0]
         prob = model.predict_proba(scaled_data)[0][1] * 100
 
-        result_text = "⚠️ Diabetic" if pred == 1 else "✅ Non-Diabetic"
+        result_text = " Diabetic" if pred == 1 else " Non-Diabetic"
         color = "#ff4b4b" if pred == 1 else "#2ecc71"
 
         # Clean professional result card
-        st.markdown("## 📋 Prediction Result")
+        st.markdown("##  Prediction Result")
         st.markdown(
             f"""
             <div style="
@@ -211,11 +207,10 @@ with tab1:
             ),
         )
         conn.commit()
-        st.success("✅ Prediction saved successfully!")
+        st.success(" Prediction saved successfully!")
 
-# ========== 🗂️ RECORDS ==========
 with tab2:
-    st.subheader("📁 Stored Patient Records")
+    st.subheader(" Stored Patient Records")
     records = pd.read_sql("SELECT * FROM predictions ORDER BY id DESC", conn)
     st.dataframe(records, use_container_width=True)
 
@@ -223,13 +218,13 @@ with tab2:
 with tab3:
     st.subheader("🧹 Manage Database")
 
-    if st.button("❌ Delete All Records"):
+    if st.button(" Delete All Records"):
         cursor.execute("DELETE FROM predictions")
         conn.commit()
         st.warning("All records have been deleted!")
 
     del_email = st.text_input("Enter Email to Delete Specific Record")
-    if st.button("🗑️ Delete by Email"):
+    if st.button(" Delete by Email"):
         cursor.execute("DELETE FROM predictions WHERE email=?", (del_email,))
         conn.commit()
         st.info(f"Records for {del_email} deleted (if existed).")
@@ -238,19 +233,18 @@ with tab3:
     buffer = io.BytesIO()
     records.to_csv(buffer, index=False)
     st.download_button(
-        "⬇️ Download Data as CSV", buffer.getvalue(), "patient_data.csv", "text/csv"
+        "⬇ Download Data as CSV", buffer.getvalue(), "patient_data.csv", "text/csv"
     )
 
-# ========== FOOTER ==========
 st.markdown("---")
 st.markdown(
     f"""
-<h3 style='color:{text_color};'>👨‍💻 About Developer</h3>
+<h3 style='color:{text_color};'> About Developer</h3>
 <p style='color:{text_color};'>
 <b>Name:</b> Rahul kumar <br>
 <b>Email:</b> <a href='mailto:rahulrajmahi611@gmail.com' style='color:#64b5f6;'>rahulrajmahi611@gmail.com</a><br>
 <b>GitHub:</b> <a href='https://github.com/Rahul8243' style='color:#64b5f6;'>github.com/Rahul8243</a><br>
-<b>LinkedIn:</b> <a href='https://linkedin.com/in/rahul8243' style='color:#64b5f6;'>linkedin.com/in/rahul8243</a>
+<b>LinkedIn:</b> <a href='https://www.linkedin.com/in/rahul-kumar-ab8843198/' style='color:#64b5f6;'>linkedin.com//The Rahul/</a>
 </p>
 """,
     unsafe_allow_html=True,
