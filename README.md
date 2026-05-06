@@ -1,4 +1,4 @@
-# 🩺 Diabetes Prediction Dashboar 
+# 🩺 Diabetes Prediction Dashboard
 
 > **An intelligent Machine Learning web app** that predicts the likelihood of diabetes based on patient medical parameters.  
 > Built with **Python**, **Streamlit**, **Scikit-learn**, and **SQLite** for real-time data storage and visualization.
